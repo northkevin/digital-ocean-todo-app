@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Stock from './components/Sotck';
+import Stock from './components/Stock';
 
 function App() {
   return (

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-import Input from './Input';
-import ListStock from './ListStock';
+import StockForm from './StockForm';
+import TableStock from './TableStock';
 
 class Stock extends Component {
 
@@ -43,8 +43,9 @@ class Stock extends Component {
     return(
       <div>
         <h1>My Stock(s)</h1>
-        <Input getStocks={this.getStocks}/>
-        <ListStock stocks={stocks} deleteStock={this.deleteStock}/>
+        <StockForm getStocks={this.getStocks}/>
+        <hr></hr>
+        <TableStock stocks={stocks} deleteStock={this.deleteStock}/>
       </div>
     )
   }
