@@ -8,15 +8,15 @@ class Input extends Component {
     action: ""
   }
 
-  addTodo = () => {
-    const task = {action: this.state.action}
+  addStock = () => {
+    const task = {symbol: this.state.symbol}
 
-    if(task.action && task.action.length > 0){
-      axios.post('/api/todos', task)
+    if(task.symbol && task.symbol.length > 0){
+      axios.post('/api/stocks', task)
         .then(res => {
           if(res.data){
-            this.props.getTodos();
-            this.setState({action: ""})
+            this.props.getStocks();
+            this.setState({symbol: ""})
           }
         })
         .catch(err => console.log(err))
@@ -27,16 +27,16 @@ class Input extends Component {
 
   handleChange = (e) => {
     this.setState({
-      action: e.target.value
+      symbol: e.target.value
     })
   }
 
   render() {
-    let { action } = this.state;
+    let { symbol } = this.state;
     return (
       <div>
-        <input type="text" onChange={this.handleChange} value={action} />
-        <button onClick={this.addTodo}>add todo</button>
+        <input type="text" onChange={this.handleChange} value={symbol} />
+        <button onClick={this.addStock}>add stock</button>
       </div>
     )
   }
